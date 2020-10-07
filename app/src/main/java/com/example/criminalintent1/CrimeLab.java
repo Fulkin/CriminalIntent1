@@ -11,6 +11,7 @@ import com.example.criminalintent1.database.CrimeBaseHelper;
 import com.example.criminalintent1.database.CrimeCursorWrapper;
 import com.example.criminalintent1.database.CrimeDbSchema.CrimeTable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.*;
 
@@ -64,6 +65,11 @@ public class CrimeLab {
         }
 
         return crimes;
+    }
+
+    public File getPhotoFile(Crime crime) {
+        File filesDir = mContext.getFilesDir();
+        return new File(filesDir, crime.getPhotoFilename());
     }
 
     public void addCrime(Crime c) {
